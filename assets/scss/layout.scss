@@ -1,0 +1,20 @@
+content{
+    margin: 0;
+
+    #layout-main{
+        height: 100%;
+    }
+}
+content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+main{
+    overflow: scroll;
+    flex: 1;
+}
+footer{
+    // position: fixed;
+    flex: 2;
+}

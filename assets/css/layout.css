@@ -1,0 +1,16 @@
+content {
+  margin: 0; }
+  content #layout-main {
+    height: 100%; }
+
+content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; }
+
+main {
+  overflow: scroll;
+  flex: 1; }
+
+footer {
+  flex: 2; }

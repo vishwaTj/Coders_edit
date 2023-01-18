@@ -1,0 +1,41 @@
+#Profile-section {
+  height: 400px;
+  background-color: #00ff84; }
+  #Profile-section img {
+    margin-left: 640px; }
+
+.update label {
+  margin-top: 5px;
+  display: block;
+  margin-left: 600px;
+  margin-bottom: 0px; }
+
+.update input[type=text] {
+  display: block;
+  margin-left: 600px;
+  margin-bottom: 20px; }
+
+.update input[type=email] {
+  display: block;
+  margin-left: 600px;
+  margin-bottom: 20px; }
+
+.update input[type=file] {
+  display: block;
+  margin-left: 600px;
+  margin-bottom: 20px; }
+
+.update input[type=submit] {
+  display: block;
+  margin-left: 600px;
+  margin-bottom: 20px; }
+
+.update p {
+  display: block;
+  margin-left: 600px;
+  margin-bottom: 20px; }
+
+#friend_button {
+  background-color: aliceblue;
+  position: relative;
+  left: 625px; }

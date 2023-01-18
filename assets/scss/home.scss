@@ -1,0 +1,95 @@
+#home-container{
+    display: flex;
+    
+    #body-profile{
+        width: 35%;
+        color: aliceblue;
+        #profile-tile{
+            background-color: rgba(9, 35, 121, 0.958);
+            text-align: center;
+            position: relative;
+            left:25%;
+            top:12px;
+            width:200px;
+            height: 300px;
+            border: 2px solid black;
+            border-radius: 10px;
+            img{
+                border-radius: 50%;
+                border-radius: 3px solid white;
+	            box-shadow: 1px 1px 10px 2px lightgrey;
+	            border: 3px solid white;
+            }
+            .profile-button{
+                margin-top: 15px;
+                width: 115px;
+                height: 30px;
+                background-color:cornflowerblue;
+                border-radius: 10px;
+                p{
+                    color: black;
+                }
+                
+            }
+        }
+    }
+    #feed-posts{
+       width: 70%;
+       padding: 10px;
+       .post-comments{
+          input[type=text]{
+             position: relative;
+             top:10px;
+             left: 15px;
+          }
+          input[type=submit]{
+             position: relative;
+             top:10px;
+             left: 15px;
+          } 
+
+        }
+
+       #posts-list-container{
+        li{
+            list-style: none;
+            border-radius: 10px;
+            border-radius: 12px solid white;
+	        box-shadow: 1px 1px 10px 2px lightgrey;
+	        border: 3px solid white;
+            p {
+               position: relative;
+               left: 20px;
+               top:10px;   
+            }
+        }
+       }
+    }
+
+
+    #user-friends{
+        width: 30%;
+        padding: 10px;
+        border: 1px solid lightgray;
+        height: 100%;
+        #Friends-block{
+            padding-top: 2px;
+            padding-left: 8px;
+            border-radius: 12px solid white;
+	        box-shadow: 1px 1px 10px 2px lightgrey;
+            li{
+                list-style: none;
+            }
+        }
+        #Users-block{
+            padding-left: 8px;
+            padding-top: 2px;
+            border-radius: 12px solid white;
+	        box-shadow: 1px 1px 10px 2px lightgrey;
+            li{
+                list-style: none;
+            }
+        }
+    }
+
+}

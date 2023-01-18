@@ -1,0 +1,43 @@
+header{
+    background-color: rgb(25, 216, 191);
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+#heading{
+    display: inline-block;
+    color:black;
+}
+#heading img{
+    width:70px;
+    height:70px;
+    position: relative;
+    left: 18px;
+}
+
+#heading h3{
+    display: inline;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: relative;
+    top:8px;
+    left: 18px;
+
+}
+
+#header-list{
+    // display: inline-block; 
+    float: right; 
+    position: relative;
+    right: 20px;
+    top: 15px;
+    ul{
+      li {
+        list-style: none;
+     a {   
+       display: block;
+       list-style: none;
+     }
+    }
+}
+}
