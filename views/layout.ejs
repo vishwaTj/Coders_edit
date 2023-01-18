@@ -1,0 +1,57 @@
+<html>
+    <head>
+         <title>
+            Coders_edit
+         </title>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>         
+         <link rel="stylesheet" href="/css/layout.css">
+         <%- style %>
+    </head>
+    <content>
+      <header>
+        <link rel="stylesheet" href="/scss/header.scss">
+       <%- include('_header'); %>
+      </header>
+       <main id="layout-main">
+         <%- body %>
+       </main> 
+      <footer>
+        <link rel="stylesheet" href="/scss/footer.scss">        
+       <%- include('_footer'); %>
+      </footer>
+      <%- script %>
+      <script>
+        <% if(flash.success && flash.success.length > 0){ %>
+          
+          // const Noty = require("noty");
+
+           new Noty({
+             theme: 'relax',
+             text: "<%= flash.success%>",
+             type: 'success',
+             layout:'topRight',
+             timeout: 1500
+
+            }).show();
+
+          <%}%>
+
+          <% if(flash.error && flash.error.length > 0){ %>
+          
+          // const Noty = require("noty");
+
+           new Noty({
+             theme: 'relax',
+             text: "<%= flash.error%>",
+             type: 'error',
+             layout:'topRight',
+             timeout: 1500
+
+            }).show();
+
+          <%}%>
+      </script>
+    </content>
+</html>

@@ -1,0 +1,30 @@
+<script src="https://kit.fontawesome.com/3d595ac1c0.js" crossorigin="anonymous"></script>
+<li>
+    <% for (comment of post.comments){%>
+       <p>
+          <!-- Verifying the login and checking if the post is done by that user -->
+          <% if(locals.user && comment.user == locals.user.id){%>
+             <small>
+                <a class="delete-comment-button" href="/comments/destroy/<%= comment.id %>"><i class="fa-solid fa-trash"></i></a> <!-- The delete link-->
+             </small>
+             <%}%>
+
+                <%=comment.content %>
+                   <br>
+                   <small>
+                      <%= comment.user.name %>
+                   </small>
+                   <!-- CHANGE :: display the likes of this comment, if the user is logged in, then show the link to toggle likes, else, just show the count -->
+                   <!-- study about the data attribute -->
+                   <small>
+                     <% if(locals.user){ %>
+                        <a class="toggle-like-button" data-likes="<%= comment.likes.length%>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment">
+                           <i class="fa-solid fa-thumbs-up"></i> <%= comment.likes.length %>
+                        </a>
+                     <% }else{ %>
+                           <i class="fa-solid fa-thumbs-up"></i> <%= comment.likes.length%>
+                     <%}%>
+                   </small>
+                   <%}%>
+       </p>
+      </li>

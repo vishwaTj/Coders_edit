@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/css/user_profile.css">
+<link rel="icon" href="/assets/images/Coders_edit-2.png">
+<img src = "<%= user.avatar %>" alt="<%= user.name%>" width="100">
+
+
+<% if( user.id == profile_user._id ){ %>
+     <form action = "/users/update/<%= profile_user._id %>" enctype="multipart/form-data" method="POST">
+        <input type="text" name="name" placeholder="Your name" value="<%= profile_user.name %>" required>
+        <input type="email" name="email" placeholder="Your Email" value="<%= profile_user.email %>" required>
+        <input type="file" name="avatar" placeholder="Profile Picture">
+        <input type="submit" value="Update">        
+     </form>
+<%}else{%>
+        <form action="/users/profile-friend/<%= profile_user._id %>" method="POST">
+          <input onclick="change()" type="submit" value="Remove Friend+" id="friend_button">
+        </form>
+<%}%>
+<script src="/assets/js/profile_page_button.js"></script>     

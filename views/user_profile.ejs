@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/css/user_profile.css">
+<link rel="icon" href="/assets/images/Coders_edit-2.png">
+
+
+  
+<div id="Profile-section">
+  <img src = "<%= profile_user.avatar %>" alt="<%= profile_user.name%>" width="100">
+  <% if( user.id == profile_user._id ){ %>
+     <!-- if user matches then show the form  -->
+     <form action = "/users/update/<%= profile_user._id %>" enctype="multipart/form-data" method="POST">
+      <div class="update">
+        <label for="name">Enter your updated name</label>
+        <input type="text" name="name" placeholder="Your name" value="<%= profile_user.name %>" required>
+      </div>
+      <div class="update"> 
+        <label for="email">Enter your updated email</label>
+        <input type="email" name="email" placeholder="Your Email" value="<%= profile_user.email %>" required>
+      </div class="update">
+      <div class="update">  
+        <input type="file" name="avatar" placeholder="Profile Picture">
+        <input type="submit" value="Update">        
+      </div>  
+     </form>
+    <%}else{%>
+<!-- else show only the profile info -->
+        <form action="/users/profile/<%= profile_user._id %>" method="post">
+          <div class="update">
+            <label for="name">Name of the user</label>
+            <p> <%= profile_user.name %></p>
+          </div>
+          <div class="update"> 
+            <label for="email">User's email</label>
+            <p> <%= profile_user.email %></p>
+          </div class="update">
+          <input onclick="change()" type="submit" value="Add Friend+" id="friend_button">
+        </form>
+     <%}%>
+    </div>     
+     <script src="/assets/js/profile_page_button.js"></script>     

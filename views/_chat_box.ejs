@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/css/chat_box.css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="/assets/js/chat_display.js"></script>
+<% if(locals.user){ %>  
+<div class="main-container">    
+  <button type="button" class="collapsible" id="collapsible"> <p> Chat box </p></button>    
+     <div id="user-chat-box" class="content">   
+     <ul id="chat-messages-list">
+       <li class="other-message">
+            <h12>other user</h12>
+           <span>Other Message</span>
+       </li>
+       <li class="self-message">
+           <h12>you</h12>
+           <span>
+             Self Message
+           </span>
+       </li>
+     </ul>
+     <div id="chat-message-input-container">
+        <input id="chat-message-input" placeholder="Type message here">
+        <button id="send-message">Send</button>
+     </div>
+    </div>
+
+</div>
+<% } %>

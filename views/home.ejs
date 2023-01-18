@@ -1,0 +1,93 @@
+<!-- This goes into body variable of layout.ejs upon page load  -->
+<link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/chat_box.css">
+<link rel="icon" href="/assets/images/Coders_edit-2.png">
+<script src="https://kit.fontawesome.com/3d595ac1c0.js" crossorigin="anonymous"></script>
+<div id="home-container">
+   <section id="body-profile">
+    <% if(locals.user){ %> 
+      <div id="profile-tile">
+      <h4>Profile</h4>
+      <div>
+      <img src = "<%= user.avatar %>" alt="<%= user.name%>" width="100">
+      </div>
+      <h5>name: <%=user.name %></h5>
+      <h12>email: <%=user.email %></h12>
+      <form action="/users/profile/<%= user.id %>">
+         <button class="profile-button" type="submit" value="update profile"> <p> update profile </p></button>
+      </form>
+      
+      </div>
+      <% } %>
+   </section>
+   <section id="feed-posts">
+      <h4>Posts</h4>
+      <% if(locals.user){ %>
+         <form action="/posts/create" id="new-post-form" method="POST">
+            <textarea name="content" cols="100" rows="5" placeholder="Type Here...." required></textarea>
+            <input type="submit" value="Post">
+         </form>
+         <% } %>
+            <div id="posts-list-container">
+               <ul>
+                  <% for(post of posts){%>
+                     <%- include('_post') -%>
+                        <% } %>
+               </ul>
+            </div>
+   </section>
+
+   <section id="user-friends">
+      <div id="Friends-block">
+      <h4>Friends</h4>
+        <li>
+           <% for(u of friend){%>
+              <p>
+                 <a href="/users/profile-friend/<%= u.id %>">
+                    <%= u.name %>
+                    
+                 </a>
+              </p>
+              <%}%>
+        </li>
+      </div>
+      
+      <div id="Users-block">
+      <h4>Users</h4>
+      <li>
+          <% for(u of all_users){%>
+             <p>
+                <a href="/users/profile/<%= u.id %>">
+                   <%= u.name %>
+                </a>
+             </p>
+             <%}%>
+      </li>
+      </div>
+   </section>
+    <%- include('_chat_box') -%>
+</div>
+<!-- importing this script for creating the comments -->
+<script src="/js/home_post_comments.js" ></script>
+<script src="/js/home_posts.js"></script>
+
+
+
+<!-- CHANGE :: import the script file for toggle likes, also run it over fr the already present posts and comments on th page -->
+<script src="/js/toggle_likes.js"></script>
+
+
+<script>
+   $('.toggle-like-button').each(function(){
+      console.log("toggle-like");
+       let self = this;
+       let toggleLike = new ToggleLike(self);
+   });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"></script>
+<script src="/js/chat_engine.js"></script>
+<% if (locals.user){%>
+<script>
+   new chatEngine('user-chat-box', '<%=locals.user.email%>','<%=locals.user.name%>');
+</script>
+<%}%>
